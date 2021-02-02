@@ -17,13 +17,6 @@ public class Main {
         // rows = array.length
         // columns = array[i].length
 
-        for(int i = 0; i < rows; i++){
-            System.out.print("Enter row "+ i+": ");
-            for(int j = 0; j < columns; j++){
-                int integer = scanner.nextInt();
-                array[i][j] = integer;
-            }
-        }
         printMatrix(array);
 
         int[][] invertMatrix = new int[rows][columns];
@@ -42,6 +35,17 @@ public class Main {
 
     }
 
+    public static void Matrix(int rows, int columns){
+        int[][] array = new int[rows][columns];
+        for(int i = 0; i < rows; i++){
+            System.out.print("Enter row "+ i+": ");
+            for(int j = 0; j < columns; j++){
+                int integer = scanner.nextInt();
+                array[i][j] = integer;
+            }
+        }
+    }
+    
     public static void printMatrix(int[][] array){
         for(int i = 0; i< array.length; i++){
             System.out.println(Arrays.toString(array[i]));
