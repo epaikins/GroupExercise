@@ -16,18 +16,13 @@ public class Main {
 
         // rows = array.length
         // columns = array[i].length
-
+        int[][] matrix = Matrix(rows,columns);
         printMatrix(array);
 
-        int[][] invertMatrix = new int[rows][columns];
-        for(int i = rows - 1,inti = 0; i>= 0; i--,inti++){
-            for(int j = columns -1, intj = 0; j>= 0; j--,intj++){
-                invertMatrix[inti][intj]= array[i][j];
-            }
-        }
+
 
         System.out.println("This is our invert Matrix ");
-        printMatrix(invertMatrix);
+        printMatrix(invertMatrix(matrix));
 
 //        int[][] intArray = invertMatrix(rows, columns);
 //
@@ -35,7 +30,7 @@ public class Main {
 
     }
 
-    public static void Matrix(int rows, int columns){
+    public static int[][] Matrix(int rows, int columns){
         int[][] array = new int[rows][columns];
         for(int i = 0; i < rows; i++){
             System.out.print("Enter row "+ i+": ");
@@ -44,8 +39,18 @@ public class Main {
                 array[i][j] = integer;
             }
         }
+        return array;
     }
-    
+    public static int[][] invertMatrix(int[][] matrix){
+        int[][] invertMatrix = new int[matrix.length][matrix[0].length];
+        for(int i = matrix.length - 1,inti = 0; i>= 0; i--,inti++){
+            for(int j = matrix[0].length -1, intj = 0; j>= 0; j--,intj++){
+                invertMatrix[inti][intj]= matrix[i][j];
+            }
+        }
+        return invertMatrix;
+    }
+
     public static void printMatrix(int[][] array){
         for(int i = 0; i< array.length; i++){
             System.out.println(Arrays.toString(array[i]));
